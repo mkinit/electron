@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" />
+	<title>文字时钟</title>
+	<style>
+		html,body{
+		-webkit-user-select:none;
+	}
+		body{
+			font-size:13px;
+			margin:0;
+			overflow: hidden;
+		}
+		.text-clock{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+			color:#DDD;
+		}
+		.text-clock::after{
+			content: "";
+			display: block;
+			background-color:#DDD;
+			width:290px;
+			height:1px;
+			border-radius: 1px;
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-left:3px;
+			margin-top:11px;
+			opacity:.1;
+		}
+		.date{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+			white-space:nowrap;
+
+		}
+		.hours{
+			transition: all .5s;
+			opacity:0;
+		}
+		.hour{
+			position:absolute;
+			left:50%;
+			top:50%;
+			transform: translate(100px,-50%);
+			white-space:nowrap;
+			transition: all .5s;
+			opacity: 1;
+		}
+		.minutes{
+			transition: all .5s;
+			opacity:0;
+		}
+		.minute{
+			position:absolute;
+			left:50%;
+			top:50%;
+			transform: translate(165px,-50%);
+			white-space:nowrap;
+			transition: all .1s;
+			opacity: 0;
+		}
+		.seconds{
+			transition: all .5s;
+			opacity:0;
+		}
+		.second{
+			position:absolute;
+			left:50%;
+			top:50%;
+			transform: translate(235px,-50%);
+			white-space:nowrap;
+			transition: all .1s;
+			opacity: 0;
+		}
+
+
+	</style>
+</head>
+
+<body>
+	<div class="text-clock">
+		<div class="point"></div>
+		<!-- <div class="date">2020年10月16日</div> -->
+		<div class="hours">
+			<div class="hour">六时</div>
+			<div class="hour">七时</div>
+			<div class="hour">八时</div>
+			<div class="hour">九时</div>
+			<div class="hour">十时</div>
+			<div class="hour">十一时</div>
+			<div class="hour">十二时</div>
+			<div class="hour">十三时</div>
+			<div class="hour">十四时</div>
+			<div class="hour">十五时</div>
+			<div class="hour">十六时</div>
+			<div class="hour">十七时</div>
+			<div class="hour">十八时</div>
+			<div class="hour">十九时</div>
+			<div class="hour">二十时</div>
+			<div class="hour">二十一时</div>
+			<div class="hour">二十二时</div>
+			<div class="hour">二十三时</div>
+			<div class="hour">二十四时</div>
+			<div class="hour">一时</div>
+			<div class="hour">二时</div>
+			<div class="hour">三时</div>
+			<div class="hour">四时</div>
+			<div class="hour">五时</div>
+		</div>
+		<div class="minutes">
+			<div class="minute">十五分</div>
+			<div class="minute">十六分</div>
+			<div class="minute">十七分</div>
+			<div class="minute">十八分</div>
+			<div class="minute">十九分</div>
+			<div class="minute">二十分</div>
+			<div class="minute">二十一分</div>
+			<div class="minute">二十二分</div>
+			<div class="minute">二十三分</div>
+			<div class="minute">二十四分</div>
+			<div class="minute">二十五分</div>
+			<div class="minute">二十六分</div>
+			<div class="minute">二十七分</div>
+			<div class="minute">二十八分</div>
+			<div class="minute">二十九分</div>
+			<div class="minute">三十分</div>
+			<div class="minute">三十一分</div>
+			<div class="minute">三十二分</div>
+			<div class="minute">三十三分</div>
+			<div class="minute">三十四分</div>
+			<div class="minute">三十五分</div>
+			<div class="minute">三十六分</div>
+			<div class="minute">三十七分</div>
+			<div class="minute">三十八分</div>
+			<div class="minute">三十九分</div>
+			<div class="minute">四十分</div>
+			<div class="minute">四十一分</div>
+			<div class="minute">四十二分</div>
+			<div class="minute">四十三分</div>
+			<div class="minute">四十四分</div>
+			<div class="minute">四十五分</div>
+			<div class="minute">四十六分</div>
+			<div class="minute">四十七分</div>
+			<div class="minute">四十八分</div>
+			<div class="minute">四十九分</div>
+			<div class="minute">五十分</div>
+			<div class="minute">五十一分</div>
+			<div class="minute">五十二分</div>
+			<div class="minute">五十三分</div>
+			<div class="minute">五十四分</div>
+			<div class="minute">五十五分</div>
+			<div class="minute">五十六分</div>
+			<div class="minute">五十七分</div>
+			<div class="minute">五十八分</div>
+			<div class="minute">五十九分</div>
+			<div class="minute">零分</div>
+			<div class="minute">一分</div>
+			<div class="minute">二分</div>
+			<div class="minute">三分</div>
+			<div class="minute">四分</div>
+			<div class="minute">五分</div>
+			<div class="minute">六分</div>
+			<div class="minute">七分</div>
+			<div class="minute">八分</div>
+			<div class="minute">九分</div>
+			<div class="minute">十分</div>
+			<div class="minute">十一分</div>
+			<div class="minute">十二分</div>
+			<div class="minute">十三分</div>
+			<div class="minute">十四分</div>
+		</div>
+		<div class="seconds">
+			<div class="second">十五秒</div>
+			<div class="second">十六秒</div>
+			<div class="second">十七秒</div>
+			<div class="second">十八秒</div>
+			<div class="second">十九秒</div>
+			<div class="second">二十秒</div>
+			<div class="second">二十一秒</div>
+			<div class="second">二十二秒</div>
+			<div class="second">二十三秒</div>
+			<div class="second">二十四秒</div>
+			<div class="second">二十五秒</div>
+			<div class="second">二十六秒</div>
+			<div class="second">二十七秒</div>
+			<div class="second">二十八秒</div>
+			<div class="second">二十九秒</div>
+			<div class="second">三十秒</div>
+			<div class="second">三十一秒</div>
+			<div class="second">三十二秒</div>
+			<div class="second">三十三秒</div>
+			<div class="second">三十四秒</div>
+			<div class="second">三十五秒</div>
+			<div class="second">三十六秒</div>
+			<div class="second">三十七秒</div>
+			<div class="second">三十八秒</div>
+			<div class="second">三十九秒</div>
+			<div class="second">四十秒</div>
+			<div class="second">四十一秒</div>
+			<div class="second">四十二秒</div>
+			<div class="second">四十三秒</div>
+			<div class="second">四十四秒</div>
+			<div class="second">四十五秒</div>
+			<div class="second">四十六秒</div>
+			<div class="second">四十七秒</div>
+			<div class="second">四十八秒</div>
+			<div class="second">四十九秒</div>
+			<div class="second">五十秒</div>
+			<div class="second">五十一秒</div>
+			<div class="second">五十二秒</div>
+			<div class="second">五十三秒</div>
+			<div class="second">五十四秒</div>
+			<div class="second">五十五秒</div>
+			<div class="second">五十六秒</div>
+			<div class="second">五十七秒</div>
+			<div class="second">五十八秒</div>
+			<div class="second">五十九秒</div>
+			<div class="second">零秒</div>
+			<div class="second">一秒</div>
+			<div class="second">二秒</div>
+			<div class="second">三秒</div>
+			<div class="second">四秒</div>
+			<div class="second">五秒</div>
+			<div class="second">六秒</div>
+			<div class="second">七秒</div>
+			<div class="second">八秒</div>
+			<div class="second">九秒</div>
+			<div class="second">十秒</div>
+			<div class="second">十一秒</div>
+			<div class="second">十二秒</div>
+			<div class="second">十三秒</div>
+			<div class="second">十四秒</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	let hours_ele = document.querySelectorAll('.hour') //所有小时元素
+	let minutes_ele = document.querySelectorAll('.minute') //所有分钟元素
+	let seconds_ele = document.querySelectorAll('.second') //所有秒元素
+
+	let hours_box = document.querySelector('.hours') //小时表盘盒子
+	let minutes_box = document.querySelector('.minutes') //分钟表盘盒子
+	let seconds_box = document.querySelector('.seconds') //秒表盘盒子
+
+	let current_second = 0
+	let current_minute = 0
+	let current_hour = 0
+
+	let seconds_deg = 0 //初始角度
+	let minutes_deg = 0 //初始角度
+	let hours_deg = 0 //初始角度
+
+	function start() {
+		hours_box.style.opacity = 1
+		minutes_box.style.opacity = 1
+		seconds_box.style.opacity = 1
+
+		hours_ele.forEach((item, index) => {
+			setTimeout(() => {
+				item.style.opacity = 1
+				item.style.transform = `translate(100px,-50%) rotate(${index*-15}deg)`
+				item.style.transformOrigin = '-100px 50%'
+			}, (index + 1) * 100)
+		})
+
+		minutes_ele.forEach((item, index) => {
+			setTimeout(() => {
+				item.style.opacity = 1
+				item.style.transform = `translate(165px,-50%) rotate(${index*-6}deg)`
+				item.style.transformOrigin = '-165px 50%'
+
+				seconds_ele[index].style.opacity = 1
+				seconds_ele[index].style.transform = `translate(235px,-50%) rotate(${index*-6}deg)`
+				seconds_ele[index].style.transformOrigin = '-235px 50%'
+
+			}, (index + 1) * 50)
+		})
+
+		clock() //初始化时钟
+	}
+
+	function clock() {
+		let date = new Date() //获取当前时间
+		let hours = current_hour = date.getHours() //获取小时数
+		let minutes = current_minute = date.getMinutes() //获取分钟数
+		let seconds = current_second = date.getSeconds() //获取秒数
+
+		seconds_deg = seconds * 6 - 78
+		minutes_deg = minutes * 6 - 90
+		hours_deg = hours * 15 + 270
+		hours_box.style.transform = "rotate(" + hours_deg + "deg)"
+		minutes_box.style.transform = "rotate(" + minutes_deg + "deg)"
+		seconds_box.style.transform = "rotate(" + seconds_deg + "deg)"
+
+		setInterval(go, 1000);
+	}
+
+	function go() {
+		current_second++
+		seconds_deg += 6
+		seconds_box.style.transform = "rotate(" + seconds_deg + "deg)"
+		if (current_second === 58) {
+			current_minute++
+			minutes_deg += 6
+			minutes_box.style.transform = "rotate(" + minutes_deg + "deg)"
+			if (current_minute === 60) {
+				hours_deg += 15
+				hours_box.style.transform = "rotate(" + hours_deg + "deg)"
+			}
+		}
+	}
+	start()
+	</script>
+</body>
+
+</html>
